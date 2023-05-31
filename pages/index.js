@@ -25,7 +25,8 @@ const createTodo = async (title) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ title }),
   });
-  return await res.json();
+  const response = await res.json();
+  console.log(response);
 };
 
 const updateTodo = async (id, updatedTodo) => {
