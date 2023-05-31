@@ -1,12 +1,12 @@
 // api/updateTodo.js
-import { container } from "../../../../lib/cosmos";
+import { cosmosContainer } from "../../../../lib/cosmos";
 
 export default async function handle(req, res) {
     console.log(`atleast updating.`);
   if (req.method === "PUT") {
     const { id } = req.query;
     const updatedTodo = req.body;
-
+    const {container} = await cosmosContainer();
     const { resource: existingTodo } = await container.item(id, id).read();
 
     if (!existingTodo) {
