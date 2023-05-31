@@ -23,7 +23,7 @@ const createTodo = async (title) => {
   const res = await fetch("/api/todos/create", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ title }),
+    body: JSON.stringify({ "title" : title }),
   });
   const response = await res.json();
   console.log(response);
