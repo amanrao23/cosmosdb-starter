@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     const { resource: createdTodo } = await container.items.create(newTodo);
     res.status(201).json(createdTodo);
     }catch(err){
-        console.log(err);
+      res.status(err.statusCode).json(err.message);
     }
   } else {
     res.status(405).end(); // Method Not Allowed
